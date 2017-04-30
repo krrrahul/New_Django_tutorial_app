@@ -9,10 +9,10 @@ from django.contrib.auth.models import User
 
 
 class RegistrationForm(UserCreationForm):
-    email=forms.EmailField(required=True)
-    class Meta:   #solved class.Contain metadata of class inside which it resides.
-        model=User #this models comes from User class which is inbuilt in django 
-        fields=(
+    email = forms.EmailField(required=True)
+    class Meta:  # solved class.Contain metadata of class inside which it resides.
+        model = User  # this models comes from User class which is inbuilt in django 
+        fields = (
             'username',
             'first_name',
             'last_name',
@@ -20,11 +20,11 @@ class RegistrationForm(UserCreationForm):
             'password1',
             'password2')
         
-    def save(self,commit=True):
-        user=super(RegistrationForm,self).save(commit=False)
-        user.first_name=self.cleaned_data['first_name']
-        user.last_name=self.cleaned_data['last_name']
-        user.email=self.cleaned_data['email']
+    def save(self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
         
         if commit:
             user.save()

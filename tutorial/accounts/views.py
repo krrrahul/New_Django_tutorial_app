@@ -1,14 +1,15 @@
-from django.shortcuts import render,HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .form import RegistrationForm
 # Create your views here.
-#two type of views 1.function based views and 2nd is classes based views
+# two type of views 1.function based views and 2nd is classes based views
 
 def home(request):
-    number={1,2,3,4}
-    name='Rahul Kumar'
-    args={'myname':name,'numbers':number}
-    return render(request,'accounts/home.html',args)
+    number = {1, 2, 3, 4}
+    name = 'Rahul Kumar'
+    args = {'myname':name, 'numbers':number}
+    return render(request, 'accounts/home.html', args)
 
 def register(request):
     if request.method == 'POST':
@@ -20,6 +21,9 @@ def register(request):
             return redirect('/account')
         
     else:
-        form=RegistrationForm()
-        args={'form':form}
-        return render(request,'accounts/reg_form.html',args)
+        form = RegistrationForm()
+        args = {'form':form}
+        return render(request, 'accounts/reg_form.html', args)
+def profile(request):
+    args = {'user':request.user}  # this user(which is a object) came from User which we have imported
+    return render(request, 'accounts/profile.html', args)

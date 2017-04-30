@@ -23,6 +23,6 @@ urlpatterns = [
      #this as because though we using django form functionality but we don't use form default page provide by django
      #instead we want to render our own page
      url(r'^logout/$',logout,{'template_name':'accounts/logout.html'}),#same explaination as for login
-     url(r'^register/$',views.register,name='register')
-
+     url(r'^register/$',views.register,name='register'),
+     url(r'^profile/$',views.profile,name='profile'),
 ]
