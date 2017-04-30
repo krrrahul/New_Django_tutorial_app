@@ -1,0 +1,39 @@
+{%extends 'base.html'%} {% block body %}
+<h1>Welcome</h1>
+<p>You can Login here</p>
+<h2>Login</h2>
+<form method='post'>
+<!-- cross side request forgery  token-->
+{%csrf_token%}
+{{form.as_p}}<!-- this form is form django login views it is rendering it as paragraph  -->
+<button type="submit" name='Button'>Login</button>
+<!-- There is LOGIN_REDIRECT_URL='/account/' in setting which need to be
+redefined else django by default send it to accounts/profile page which is cosider automaticlly that it wil present there
+we we define that variable in the setting file  -->
+</form>
+{% endblock %}
+
+<!-- we are using it for testing only not anything else ,it works fine haahhahaaha
+  <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+{%load static%}
+<link rel="stylesheet" href="{%static 'accounts/style.css' %}"
+	tupe='text/css'>
+<title>Login</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Weclome</h1>
+		Hello monika Welcome you can login here
+		<button class='btn btn-default' type='button' name='button''>Login</button>
+		<h1>{{myname}}</h1>
+	</div>
+	<ul>
+		{% for number in numbers %}
+		<li>{{number}}</li> {% endfor %} 
+	</ul>
+
+</body>
+</html>-->
