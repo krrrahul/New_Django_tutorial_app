@@ -24,5 +24,6 @@ urlpatterns = [
      #instead we want to render our own page
      url(r'^logout/$',logout,{'template_name':'accounts/logout.html'}),#same explaination as for login
      url(r'^register/$',views.register,name='register'),
-     url(r'^profile/$',views.profile,name='profile'),
+     url(r'^profile/$',views.view_profile,name='view_profile'),
+     url(r'^profile/edit/$',views.edit_profile,name='edit_profile'),
 ]

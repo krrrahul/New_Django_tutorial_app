@@ -3,7 +3,7 @@ Created on Apr 30, 2017
 
 @author: rahul
 '''
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from django.contrib.auth.models import User
 
@@ -29,4 +29,13 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+        
+class EditProfileForm(UserChangeForm): #This is usercreation is extended
+    class Meta:
+        model=User
+        fields=(#fields contain include and there is one more thing called 'exclude' which is used for whatever things which is not required
+            'email',
+            'first_name',
+            'last_name'
+            )
         
