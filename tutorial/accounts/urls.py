@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
-from django.contrib.auth.views import login,logout
+from django.contrib.auth.views import login,logout,password_reset,password_reset_done,password_reset_confirm,password_reset_complete
 urlpatterns = [
     url(r'^$',views.home),
      url(r'^login/$',login,{'template_name':'accounts/login.html'}),# we are using {'template_name':'accounts/login.html'} 
@@ -26,4 +26,18 @@ urlpatterns = [
      url(r'^register/$',views.register,name='register'),
      url(r'^profile/$',views.view_profile,name='view_profile'),
      url(r'^profile/edit/$',views.edit_profile,name='edit_profile'),
+     url(r'^change_password/$',views.change_password,name='change_password'),
+     #how it works
+     url(r'^reset_password/$',password_reset,name="reset_password"),
+     url(r'^reset_password/done/$',password_reset_done,name="password_reset_done"), #note that reset_password will
+     #internally call password_reset_done by seeing the name in password_reset_done url and name should "password_reset_done" only
+     url(r'^reset_password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',password_reset_confirm,name="password_reset_confirm"),#in this also name is importnat
+     #in above url note that keyword argument will try to send to URL a token and uidb64 
+     #reset_password try send data to confirm URL 
+     #Note after one more error will come in which it send mail through an emial server and we can python
+     #inbuild email debbuging server .you can get the details from http://stackoverflow.com/questions/5802189/django-errno-111-connection-refused/5802348#5802348
+     url(r'^reset_password/complete/$',password_reset_complete,name="password_reset_complete"),
+     
+    
+     
 ]
