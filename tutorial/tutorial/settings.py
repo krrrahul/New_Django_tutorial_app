@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+
+from django.conf.urls import url
 from django.conf.global_settings import LOGIN_REDIRECT_URL
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -49,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tutorial.middleware.LoginRequiredMiddleware', #work better request and response#LoginRequiredMiddleware this is
+    #name of class defined in that middleware
 ]
 
 ROOT_URLCONF = 'tutorial.urls'
@@ -121,6 +125,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='/account/'
+LOGIN_URL='/account/login/'
+
+LOGIN_EXEMPT_URLS = (
+    r'^account/logout/$',
+    r'^account/register/$'
+)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
