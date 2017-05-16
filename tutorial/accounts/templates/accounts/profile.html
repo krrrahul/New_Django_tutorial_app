@@ -13,6 +13,11 @@
 		<p>Firstname:{{user.first_name}}</p>
 		<p>Lastname:{{user.last_name}}</p>
 		<p>Email:{{user.email}}</p>
+		<h4>This is coming from userprofile which we defined in model class</h4>
+		<p>Description:{{user.userprofile.description}}</p> <!-- Note this is coming
+		 from user profile data -->
+		 <p>Phone:{{user.userprofile.phone}}</p>
+		 <p>City:{{user.userprofile.city}}</p>
 	</div>
 
 

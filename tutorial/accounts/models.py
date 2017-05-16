@@ -12,6 +12,12 @@ class UserProfile(models.Model):
     city=models.CharField(max_length=10,default='')
     website=models.URLField(default='')
     phone=models.IntegerField(default=0)
+
+    def __str__(self):
+        #if we will not wtite this it will simple give 
+        #userobject as username everywhere
+        return self.user.username
+    
     
 def create_profile(sender,**kwargs):
     if kwargs['created']:

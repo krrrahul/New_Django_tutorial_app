@@ -21,5 +21,6 @@ from tutorial.views import login_redirect
 urlpatterns = [
     url(r'^$',login_redirect,name='login_redirect'),
     url(r'^admin/', admin.site.urls),
-    url(r'^account/',include('accounts.urls')),
+    url(r'^account/',include('accounts.urls',namespace='accounts')),#now suppose we have many apps and each can have a comom 
+    #url name and to avoid this conflict in the main place we give the namespace ,check in middleare reverse section
 ]

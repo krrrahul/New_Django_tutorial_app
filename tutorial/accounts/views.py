@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .form import (RegistrationForm, EditProfileForm,)
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required #decoratore is wasy of giving edit functionality to your
 # fuction based veiws or nay funtion in python
 # Create your views here.
