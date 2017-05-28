@@ -15,15 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from django.contrib.auth.views import login
-from tutorial.views import login_redirect
 from django.conf import settings
 from django.conf.urls.static import static
-
+from .views import HomeView
 urlpatterns = [
-    url(r'^$',login_redirect,name='login_redirect'),
-    url(r'^admin/', admin.site.urls),
-    url(r'^account/',include('accounts.urls',namespace='accounts')),#now suppose we have many apps and each can have a comom 
-    #url name and to avoid this conflict in the main place we give the namespace ,check in middleare reverse section
-    url(r'^home/',include('home.urls',namespace='home')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+     url(r'^$',HomeView.as_view(),name='home'),
+]

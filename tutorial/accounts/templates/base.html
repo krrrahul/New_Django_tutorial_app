@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +31,13 @@
 						<li><a href='/account/profile'>Profile</a>
 						<li><a href='/account/profile/edit'>Edit Profile</a>
 						<li><a href='/account/change_password'>Change Password</a>
-						<li><a href='/account/reset_password'>Change Password</a>-->
-						<li><a href='/account'>Home</a>
+						<li><a href='/account/reset_password'>Change Password</a>
+						
+						<li><a href='/account'>Home</a
+						<li><a href='/home'>Home</a>>-->
+						
+						
+						<li><a href='{% url 'home:home' %}'>Logout</a>
 						<li><a href='{% url 'accounts:logout' %}'>Logout</a><!-- This accounts: is coming from namespace  -->
 						<li><a href='{% url 'accounts:view_profile' %}'>Profile</a>
 						<li><a href='{% url 'accounts:edit_profile' %}'>Edit Profile</a>

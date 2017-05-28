@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL='/media/' # on clicling the image it will make an URL which comes from this
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'tutorial/media') # this is where i want put my media filesand base dir point to
+# top level dir
+
 LOGIN_REDIRECT_URL='/account/'
 LOGIN_URL='/account/login/'
 
@@ -138,3 +145,4 @@ LOGIN_EXEMPT_URLS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+

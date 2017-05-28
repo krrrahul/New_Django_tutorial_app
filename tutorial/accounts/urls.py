@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 from django.contrib.auth.views import login,logout,password_reset,password_reset_done,password_reset_confirm,password_reset_complete
 #now name in  URl is used for removing the hardcoded URLS 
 urlpatterns = [
-    url(r'^$',views.home),
+    url(r'^$',views.home), #temporary not using this 
      url(r'^login/$',login,{'template_name':'accounts/login.html'},name='login'),# we are using {'template_name':'accounts/login.html'} 
      #this as because though we using django form functionality but we don't use form default page provide by django
      #instead we want to render our own page
@@ -53,4 +55,4 @@ urlpatterns = [
      
     
      
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

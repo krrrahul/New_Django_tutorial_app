@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required #decoratore is wasy of
 # fuction based veiws or nay funtion in python
 # Create your views here.
 # two type of views 1.function based views and 2nd is classes based views
-
+'''Temporary not using this def'''
 def home(request):
     number = {1, 2, 3, 4}
     name = 'Rahul Kumar'

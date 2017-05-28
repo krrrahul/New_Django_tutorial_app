@@ -12,6 +12,9 @@ class UserProfile(models.Model):
     city=models.CharField(max_length=10,default='')
     website=models.URLField(default='')
     phone=models.IntegerField(default=0)
+    image =models.ImageField(upload_to='profile_image',blank=True) # generally we don't store
+    #image in databse becuase it slow the system down as they are very large and it will upload to 
+    # profile_image folder in the project if it is not present it will create it
 
     def __str__(self):
         #if we will not wtite this it will simple give 
